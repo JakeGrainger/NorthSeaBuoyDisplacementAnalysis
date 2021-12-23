@@ -1,0 +1,12 @@
+[deps]
+DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+JLD2 = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+OceanWaveSpectralFitting = "a44e4c57-a566-426a-9563-b0c20c24dda1"
+Optim = "429524aa-4258-5aef-a3af-852621145aeb"
+ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[compat]
+JLD2 = "0.4.16"
+Optim = "1.5"
