@@ -1,13 +1,15 @@
-struct Figure6
+struct Figure6{S}
     θ1::Vector{Float64}
     θ2::Vector{Float64}
     θ3::Vector{Float64}
+    col::S
     function Figure6(
             θ1 = [0.7, 0.8, 3.3, 5, π / 2, 4, 2.7, 0.55, 0.26],
             θ2 = [0.7, 1.1, 3.3, 5, π / 2, 4, 2.7, 0.55, 0],
-            θ3 = [0.7, 1.0, 1, 5, π / 2, 4, 2.7, 0.55, 0.26]
+            θ3 = [0.7, 1.0, 1, 5, π / 2, 4, 2.7, 0.55, 0.26];
+            col=:speed
         )
-        new(θ1,θ2,θ3)
+        new{typeof(col)}(θ1,θ2,θ3,col)
     end
 end
 
@@ -19,7 +21,7 @@ end
             yticks --> (0.6:0.3:1.5)
             clims --> (0,1.25)
             levels --> 50
-            seriescolor := :thermal
+            seriescolor := f.col
             subplot := i
             FrequencyDirectionSpectra.FDJONSWAP(θ),true
         end
@@ -37,7 +39,7 @@ end
     yticks --> (0.6:0.3:1.5)
     clims --> (0,1.25)
     levels --> 50
-    seriescolor := :thermal
+    seriescolor := fc.fig6.col
     FrequencyDirectionSpectra.FDJONSWAP(fc.fig6.θ1),true
 end
 

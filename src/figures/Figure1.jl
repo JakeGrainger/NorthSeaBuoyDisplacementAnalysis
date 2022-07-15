@@ -16,12 +16,13 @@ struct Figure1c
         new(x)
     end
 end
-struct Figure1
+struct Figure1{S}
     fig1a::Figure1a
     fig1b::Figure1b
     fig1c::Figure1c
-    function Figure1()
-        new(Figure1a(),Figure1b(),Figure1c())
+    col::S
+    function Figure1(col=:speed)
+        new{typeof(col)}(Figure1a(),Figure1b(),Figure1c(),col)
     end
 end
 
@@ -32,7 +33,6 @@ end
     clims --> (0,1.25)
     colorbar_ticks --> (0:0.25:1.25)
     levels --> 50
-    seriescolor := :thermal
     FrequencyDirectionSpectra.FDJONSWAP(f.θ₁),true
 end
 
@@ -43,7 +43,6 @@ end
     clims --> (0,1.25)
     colorbar_ticks --> (0:0.25:1.25)
     levels --> 50
-    seriescolor := :thermal
     FrequencyDirectionSpectra.FDJONSWAP(f.θ₂[1:9]) + FrequencyDirectionSpectra.FDSwell(f.θ₂[10:end]),true
 end
 
@@ -54,7 +53,6 @@ end
     clims --> (0,1.25)
     colorbar_ticks --> (0:0.25:1.25)
     levels --> 50
-    seriescolor := :thermal
     FrequencyDirectionSpectra.FDJONSWAP(f.θ₃[1:9]) + FrequencyDirectionSpectra.FDSwell(f.θ₃[10:14]) + FrequencyDirectionSpectra.FDSwell(f.θ₃[15:end]),true
 end
 
@@ -63,7 +61,7 @@ end
     layout := (1,3)
     clims --> (0,1.25)
     levels --> 50
-    seriescolor := :thermal
+    seriescolor := f.col
     @series begin
         subplot := 1
         seriestype := :contour
@@ -91,7 +89,7 @@ end
     clims --> (0,1.25)
     levels --> 50
     legend := true
-    seriescolor := :thermal
+    seriescolor := fc.fig1.col
     seriestype := :contour
     FrequencyDirectionSpectra.FDJONSWAP(fc.fig1.fig1a.θ₁),true
 end
