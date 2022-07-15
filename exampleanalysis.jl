@@ -24,7 +24,7 @@ function wavedir_threshold(dir,Ω)
     return isnothing(thresh) ? NaN : Ω[thresh]
 end
 
-## choose threholds
+## choose thresholds
 swellend = fitend-50 # final record which actually contains swell
 errorthreshold = [errorgramthreshold(a,Ω, 2, 20) for a in eachcol(errorgram[:,fitstart:fitend])]
 swellthreshold = [wavedir_threshold(w,Ω) for w in eachcol(wavedir[:,fitstart:swellend])]
