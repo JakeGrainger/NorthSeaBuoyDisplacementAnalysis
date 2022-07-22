@@ -41,15 +41,15 @@ end
 
 @recipe function f(f::Figure5)
     layout := (3,3)
-    Ω = range(0,2,length=100)
+    Ω = range(0,2,length=200)
     for (i,parameter) ∈ enumerate([:α,:ωₚ,:γ,:r]), (j,par) ∈ enumerate(getfield(f,parameter))
         @series begin
             subplot := i
-            ylims := (0,1.2)
             seriescolor := f.colors[i]
             linestyle := f.styles[j]
             label := L"%$(f.names[i]) = %$par"
             if i < 4
+                ylims := (0,1.8)
                 yguide := L"f(\omega)"
             elseif i == 4
                 yguide := L"10\,\log_{10}\;f(\omega)"

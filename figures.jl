@@ -9,6 +9,7 @@ default(xtickfontsize = fontsize, ytickfontsize = fontsize, colorbar_tickfontsiz
 pyplot(dpi = 300)
 foldername = "fig/"
 isdir(foldername) || mkdir(foldername)
+@info "Loaded packages"
 
 ## Figure 1 - example S(ω,ϕ)
 pyplot(size = (1000,300))
@@ -34,7 +35,7 @@ savefig(foldername * "figure3.png")
 pyplot(size = (1000,250))
 plot(PaperFigures.Figure4(levels=[0;10.0.^(-14:1:-1);0.2:0.1:2.1],
     col3=cgrad(:speed,rev=true),
-    col2=palette(:Paired_10)[2],
+    col2=:black,
     col1=:speed,
     linecol=palette([:black,:black],2)),
     size=(800,200))
@@ -85,6 +86,6 @@ savefig(foldername * "figure10.png")
 
 ## Figure 11 - Parameter estimates (buoy data)
 pyplot(size = (1000,750))
-plot(PaperFigures.Figure11())
+plot(PaperFigures.Figure11(),plotascontinuous=true) # set to false for scatter plot with CI bars
 savefig(foldername * "figure11.png")
 @info "Finished figure 11"

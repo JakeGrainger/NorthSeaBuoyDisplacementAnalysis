@@ -38,7 +38,7 @@ struct Figure11
     end
 end
 
-@recipe function f(f::Figure11)
+@recipe function f(f::Figure11;plotascontinuous=true)
     layout := (4,2)
     colorbar := false
     @series begin
@@ -66,12 +66,16 @@ end
             if f.plotlayout[i] == 3
                 ylims := (0,2)
             end
-            yerror := f.CI[i]
-            seriestype := :scatter
-            markersize := 3
             seriescolor := f.colors[i]
-            markerstrokecolor := f.colors[i]
-            markerstrokewidth := 1
+            if plotascontinuous
+                ribbon := f.CI[i]
+            else
+                yerror := f.CI[i]
+                seriestype := :scatter
+                markersize := 3
+                markerstrokecolor := f.colors[i]
+                markerstrokewidth := 1
+            end
             label := L"%$(f.parnames[i])"
             xticks := (2:4,map(i->"day $i",2:4))
             xlims := (2-10/24, 5)
