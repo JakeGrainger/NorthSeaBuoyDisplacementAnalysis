@@ -9,3 +9,5 @@ The following files should be used to run the analysis:
 - exampleanalysis.jl: Run the analysis on the example data set.
 - simulation.jl: Run the simulation study comparing a variety of techniques.
 - figures.jl: Generate figures from results of the previous two files.
+
+(Note that the figures are in a different order to the paper, as Figure 5 was moved to the end.)
