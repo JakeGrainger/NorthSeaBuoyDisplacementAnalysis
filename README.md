@@ -1,5 +1,7 @@
 # North Sea Buoy Displacement Analysis
 
+[![DOI](https://zenodo.org/badge/440565761.svg)](https://zenodo.org/badge/latestdoi/440565761)
+
 This repository contains code and data for an analysis fitting spectral models to buoy displacement data.
 
 To use, clone the repository and then start Julia and navigate to the directory folder.
