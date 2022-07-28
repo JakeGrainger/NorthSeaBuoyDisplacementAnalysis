@@ -1,6 +1,6 @@
 # North Sea Buoy Displacement Analysis
 
-[![DOI](https://zenodo.org/badge/440565761.svg)](https://zenodo.org/badge/latestdoi/440565761)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6922892.svg)](https://doi.org/10.5281/zenodo.6922892)
 
 This repository contains code and data for an analysis fitting spectral models to buoy displacement data.
 
