@@ -1,6 +1,6 @@
 function mt_wavedirection(signal::AbstractMatrix{T}, n, n_overlap; fs=1,onesided=true, nw::Real=4, ntapers::Int=ceil(Int, 2nw)-1) where {T}
-    config = DSP.MTSpectrogramConfig{T}(size(signal,2), n, n_overlap; fs=fs,onesided=onesided,nw=nw,ntapers=ntaper)
-    configcross = DSP.MTCrossSpectraConfig{T}(size(signal,1), n; fs = fs,onesided=onesided,nw=nw,ntapers=ntaper)
+    config = DSP.MTSpectrogramConfig{T}(size(signal,2), n, n_overlap; fs=fs,onesided=onesided,nw=nw,ntapers=ntapers)
+    configcross = DSP.MTCrossSpectraConfig{T}(size(signal,1), n; fs = fs,onesided=onesided,nw=nw,ntapers=ntapers)
     X = DSP.allocate_output(config)
     tempoutput = DSP.allocate_output(configcross)
     epochs = [DSP.arraysplit(r,n,n_overlap) for r in eachrow(signal)]
